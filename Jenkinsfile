@@ -1,28 +1,25 @@
 pipeline {
     agent any
-        }
-        stage ('build') {
+
+    stages {
+        stage('build') {
             steps {
                 sh 'mvn clean:clean'
                 sh 'mvn dependency:copy-dependencies'
                 sh 'mvn compiler:compile'
             }
         }
-//         stage ('Exec') {
-//             steps {
-//                 sh 'mvn exec:java'
-//             }
-//         }
-        stage ('Package') {
+        
+        stage('Package') {
             steps {
                 sh 'mvn package'
             }
         }
     }
+
     post {
         success {
-            archiveArtifacts allowEmptyArchive: true,
-                artifacts: 'target/*.jar'
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'target/*.jar'
         }
     }
 }
