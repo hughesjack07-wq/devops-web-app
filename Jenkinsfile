@@ -22,7 +22,7 @@ pipeline {
     post {
         success {
             archiveArtifacts allowEmptyArchive: true,
-                artifacts: '**/ct5209_test1Maven*.jar'
+                artifacts: 'target/*.jar'
         }
     }
 }
