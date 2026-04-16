@@ -1,11 +1,5 @@
 pipeline {
     agent any
-
-    stages {
-        stage ('GetProject') {
-            steps {
-                git 'https://github.com/takfarinassaber/CT5209_test1Maven.git'
-            }
         }
         stage ('build') {
             steps {
