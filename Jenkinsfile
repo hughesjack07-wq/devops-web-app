@@ -5,7 +5,10 @@ pipeline {
         stage('Build and Package') {
             steps {
                 dir('ct5209_test1maven') {
-                    sh 'mvn clean package'
+                    sh 'mvn clean'
+                    sh 'mvn dependency:copy-dependencies'
+                    sh 'mvn compiler:compile'
+                    sh 'mvn package'
                 }
             }
         }
