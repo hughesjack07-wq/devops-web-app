@@ -2,20 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('build & package') {
+        stage('Build and Package') {
             steps {
-                sh 'mvn clean'
-                sh 'mvn dependency:copy-dependencies'
-                sh 'mvn compiler:compile'
-                sh 'mvn package'
+                dir('ct5209_test1Maven') {
+                    sh 'mvn clean package'
+                }
             }
         }
     }
-} 
 
     post {
         success {
-            archiveArtifacts allowEmptyArchive: true, artifacts: 'ct5209_test1Maven/target/*.jar'
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'ct5209_test1maven/target/*.jar'
         }
     }
 }
