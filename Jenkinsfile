@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('GetProject') {
             steps {
-                git 'https://github.com/hughesjack07-wq/devops-web-app.git'
+                git branch: 'main', url: 'https://github.com/hughesjack07-wq/devops-web-app.git'
             }
         }
         stage('build') {
