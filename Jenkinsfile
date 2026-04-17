@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build and Package') {
             steps {
-                dir('ct5209_test1Maven') {
+                dir('ct5209_test1maven') {
                     sh 'mvn clean package'
                 }
             }
